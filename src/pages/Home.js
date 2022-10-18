@@ -2,9 +2,9 @@ import React, { useContext } from 'react'
 
 import { ProductContext } from '../context/ProductContextProvider';
 
-import  Product from './Product';
+import Product from '../components/Product';
 
-function MainStore() {
+function Home() {
     const products = useContext(ProductContext)
     console.log(products)
     return (
@@ -17,4 +17,4 @@ function MainStore() {
     )
 }
 
-export default MainStore;
+export default Home;
