@@ -1,7 +1,8 @@
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Product({productData}) {
+
+function Product({productData}) {    
     return (
         <>
             <img src={productData.image} alt={productData.name} width={200} />

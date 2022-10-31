@@ -8,8 +8,9 @@ const initialState = {
 }
 
 const cartReducer = (state, {type, payload}) => {
+    console.log(state)
     switch(type){
-        case "ADD_PRODUCT":
+        case "ADD_PRODUCT_TO_CART":
             if(!state.selectedProducts.find(product => product.id === payload.id)){     // if selected item to added to cart is not in the cart ...
                 state.selectedProducts.push({
                     ...payload,                                                         // taking all the information about selected product and save it in new object
