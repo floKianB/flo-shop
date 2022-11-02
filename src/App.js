@@ -3,8 +3,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import ProductContextProvider from './context/ProductContextProvider';
 import CartContextProvider from './context/CartContextProvider';
-import Home from './pages/Home';
+import Home from './pages/Home.js';
+import Products from './pages/Products.js';
 import ProductDetails from './pages/ProductDetails';
+import NavigationBar from './components/NavigationBar';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -12,12 +15,15 @@ function App() {
     <div className="App">
       <ProductContextProvider>
         <CartContextProvider>
-          <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<Home/>} />
-                <Route path="product/:id" element={<ProductDetails/>} />
-            </Routes>
-          </BrowserRouter>
+          <NavigationBar />
+            <BrowserRouter>
+              <Routes>
+                  <Route path="/" element={<Home/>} />
+                  <Route path="products/" element={<Products/>} />
+                  <Route path="product/:id" element={<ProductDetails/>} />
+              </Routes>
+            </BrowserRouter>
+          <Footer />
         </CartContextProvider>
       </ProductContextProvider>
 

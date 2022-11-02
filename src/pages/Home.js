@@ -1,19 +1,14 @@
-import React, { useContext } from 'react'
-
-import { ProductContext } from '../context/ProductContextProvider';
-
-import Product from '../components/Product';
+import React from 'react'
+import '../styles/css/Home/homePage.css';
+// Main Page of website; includes:
+//  * Home banner 
+//  * slider related to banner
+//  * all brands slider
+//  * three blocks of short cuts 
 
 function Home() {
-    const products = useContext(ProductContext)
-    console.log(products)
     return (
-        <div>
-        {
-            products.map(product => <Product key={product.id} productData={product}/>)
-        }
-        </div>
-
+    <div>Home</div>
     )
 }
 
