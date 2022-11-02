@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import "../styles/css/repeatedComponent/navigationBar.css";
+import "../styles/css/navigationBar.css";
 
 import cart from '../images/cart.png';
 import user from '../images/user.png';

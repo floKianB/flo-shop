@@ -1,14 +1,15 @@
 import React from 'react'
-import '../styles/css/Home/homePage.css';
+import '../../styles/css/Home/homePage.css';
 // Main Page of website; includes:
 //  * Home banner 
+    import Banner from './Banner';
 //  * slider related to banner
 //  * all brands slider
 //  * three blocks of short cuts 
 
 function Home() {
     return (
-    <div>Home</div>
+        <Banner />
     )
 }
 
