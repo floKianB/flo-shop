@@ -19,16 +19,19 @@ nav {
 .logo {
   flex: 2;
 }
+.logo .logoIcon {
+  transform: scale(0.65);
+}
 
 .navigators {
   flex: 14;
   display: flex;
   justify-content: center;
-  gap: 6rem;
+  gap: 8rem;
 }
 .navigators .eachNavigator {
   text-decoration: none;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   color: black;
 }
 
@@ -36,7 +39,7 @@ nav {
   flex: 2;
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .mainLinks {

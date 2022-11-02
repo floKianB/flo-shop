@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import "../styles/css/navigationBar.css";
 
+import logo from "../images/logo.png"
 import cart from '../images/cart.png';
 import user from '../images/user.png';
 
@@ -9,7 +10,9 @@ function NavigationBar() {
     return (
         <>
         <nav>
-            <h2 className="logo">Flo Shop</h2>
+            <div className="logo">
+                <img src={logo} alt="logo" className="logoIcon"/>
+            </div>
             <div className="navigators">
                 <Link className="eachNavigator" to='/'>Home</Link>
                 <Link className="eachNavigator" to='/products'>Products</Link>
