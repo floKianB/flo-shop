@@ -1,0 +1,40 @@
+nav {
+    list-style: none;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo, .navigators, .mainLinksContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.logo{
+    flex: 2;
+}
+.navigators{
+    flex: 14;
+    display: flex;
+    justify-content: center;
+    gap: 6rem;
+    .eachNavigator{
+        text-decoration: none;
+        font-size: 1.2rem;
+        color: black;
+    }
+}
+.mainLinksContainer{
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+
+
+.mainLinks{
+    width: 40px;
+}
