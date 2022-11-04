@@ -1,0 +1,9 @@
+.productsContainer {
+  padding: 1.5rem 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-items: center;
+  row-gap: 30px;
+}
+
+/*# sourceMappingURL=products.css.map */
