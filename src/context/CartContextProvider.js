@@ -28,14 +28,14 @@ const cartReducer = (state, {type, payload}) => {
                 selectedProducts: [...newSelectedProducts]                              // Return the new changed (deleted) products after filter
             }
         case "INCREASE_PRODUCT_QUANTITY":
-            const indexIncrease = state.selectedProducts.findIndex(product => product.id === payload.id)
-            state.selectedProducts[indexIncrease].productQuantity++;
+            const indexIncrease = state.selectedProducts.findIndex(product => product.id === payload.id);
+            state.selectedProducts[indexIncrease].quantity++;
             return {
                 ...state,
             }
         case "DECREASE_PRODUCT_QUANTITY":
             const indexDecrease = state.selectedProducts.findIndex(product => product.id === payload.id)
-            state.selectedProducts[indexDecrease].productQuantity--;
+            state.selectedProducts[indexDecrease].quantity--;
             return {
                 ...state,
             }
@@ -54,7 +54,7 @@ const cartReducer = (state, {type, payload}) => {
                 checkedOut: false,
             }
         default:
-            return state;
+        return state;
     }    
 }
 

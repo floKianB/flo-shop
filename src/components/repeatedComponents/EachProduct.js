@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-
+import { CartContext } from '../../context/CartContextProvider';
+// image Links
+import trash from '../../images/trash.svg'
+// styles
 import "../../styles/css/Product/eachProduct.css";
 
-function EachProduct({productData}) {    
+const isInCart = (state, id) => !!state.selectedProducts.find(product => product.id === id)
+
+
+function EachProduct({productData}) { 
+
+
+    const {state, dispatch} = useContext(CartContext);
+    const selectedItem = state.selectedProducts.find(selectedProduct => selectedProduct.id === productData.id);
     return (
         <div className="eachProductCard">
             {/* Header */}
@@ -17,8 +27,34 @@ function EachProduct({productData}) {
             </span>
             {/* Price and Add to Cart */}
             <span className="priceSection">
-                <div>
-                    <button className="addToCart">Add to Cart</button>
+                <div className="buttonContainer">
+                    {
+                        isInCart(state, productData.id) ?
+                            selectedItem.quantity !== 1 ? 
+                            <> 
+                                <button className="functionalButtons" onClick={() => dispatch({type: "DECREASE_PRODUCT_QUANTITY", payload: productData})}>-</button>
+                                <h3>{selectedItem.quantity}</h3>
+                                <button className="functionalButtons" onClick={() => {
+                                    dispatch({type: "INCREASE_PRODUCT_QUANTITY", payload: productData})
+                                    }
+                                } >+</button>
+                            </>
+                            :
+                            <> 
+                                <button className="functionalButtons" onClick={() => dispatch({type: "DELETE_PRODUCT", payload: productData})}>
+                                    <img width="12px" src={trash} alt="remove"/>
+                                </button>
+                                <h3>{selectedItem.quantity}</h3>
+                                <button className="functionalButtons" onClick={() => {
+                                    dispatch({type: "INCREASE_PRODUCT_QUANTITY", payload: productData})
+                                    }
+                                } >+</button>
+                            </>
+                        :
+                            
+                        <button className="functionalButtons" onClick={() => dispatch({type: "ADD_PRODUCT_TO_CART", payload: productData})}>Add to Cart</button>
+                    }
+                    
                 </div>
                 <h3 className="product">${productData.price}</h3>
             </span>
@@ -28,3 +64,4 @@ function EachProduct({productData}) {
 }
 
 export default EachProduct;
+
