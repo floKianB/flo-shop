@@ -1,0 +1,36 @@
+.eachProduct{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 5rem;
+    
+    .imageOneThird{
+        flex:4;
+    }
+    .titleTwoThird{
+        flex: 6;
+        .actionButtons{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 1rem;
+            button{
+                background-color: white;
+                color: black;
+                border: 1px solid black;
+                height: min-content;    
+            }
+        }
+    }
+    .priceThirdThird{
+        flex: 2;
+        font-size: 1.5rem;
+    }
+    .devider{
+        color: 'black';
+        background-color: 'black';
+        height: '0.25px';
+        border-color : 'black';
+    }
+    
+}

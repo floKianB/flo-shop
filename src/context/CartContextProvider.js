@@ -2,13 +2,20 @@ import React, { useReducer, createContext } from 'react';
 
 const initialState = {
     selectedProducts: [],
-    productQuantity: 0,
-    totalPrice: [],
+    allProductsQuantity: 0,
+    totalPrice: 0,
     checkedOut: false,
 }
 
+const totalCalculator = selectedItems => {
+    const allProductsQuantity = selectedItems.reduce((total, eachProduct) => total + eachProduct.quantity, 0)
+    const totalPrice = selectedItems.reduce((total, eachProduct) => total + eachProduct.price * eachProduct.quantity, 0).toFixed(2)
+    console.log(totalPrice);
+    return { allProductsQuantity, totalPrice }
+}
+
 const cartReducer = (state, {type, payload}) => {
-    console.log(state)
+    console.log(state.totalPrice)
     switch(type){
         case "ADD_PRODUCT_TO_CART":
             if(!state.selectedProducts.find(product => product.id === payload.id)){     // if selected item to added to cart is not in the cart ...
@@ -19,25 +26,31 @@ const cartReducer = (state, {type, payload}) => {
             }
             return {
                 ...state,
-                selectedProducts: [...state.selectedProducts]
+                selectedProducts: [...state.selectedProducts],
+                ...totalCalculator(state.selectedProducts)
             }
         case "DELETE_PRODUCT":
             const newSelectedProducts = state.selectedProducts.filter(product => product.id !== payload.id)     // If there is a id in cart which is not equal to the selected id (which we wanna delete) ... we save it in this variable - filter it out
             return {
                 ...state,
-                selectedProducts: [...newSelectedProducts]                              // Return the new changed (deleted) products after filter
+                ...totalCalculator(newSelectedProducts),
+                selectedProducts: [...newSelectedProducts],                              // Return the new changed (deleted) products after filter
+                
             }
         case "INCREASE_PRODUCT_QUANTITY":
             const indexIncrease = state.selectedProducts.findIndex(product => product.id === payload.id);
             state.selectedProducts[indexIncrease].quantity++;
             return {
                 ...state,
+                ...totalCalculator(state.selectedProducts),
+
             }
         case "DECREASE_PRODUCT_QUANTITY":
             const indexDecrease = state.selectedProducts.findIndex(product => product.id === payload.id)
             state.selectedProducts[indexDecrease].quantity--;
             return {
                 ...state,
+                ...totalCalculator(state.selectedProducts),
             }
         case "CHECK_OUT":                                                               // save the reciept of this order in another container; as future feature. 
             return {
