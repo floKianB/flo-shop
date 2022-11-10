@@ -21,7 +21,7 @@ function EachCartProduct({productInfo}) {
                     <button onClick={()=> dispatch({type: "INCREASE_PRODUCT_QUANTITY", payload: productInfo})}>+</button>
                     <p>{productInfo.quantity}</p>
                     {
-                        productInfo.quantity == 1 
+                        productInfo.quantity === 1 
                             ?
                         <button onClick={() => dispatch({type: "DELETE_PRODUCT", payload: productInfo})}>
                             <img width="12px" src={trash} alt="remove"/>

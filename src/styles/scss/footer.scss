@@ -1,0 +1,22 @@
+.footer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    bottom: 0;
+    .backToTop{
+        background-color: black;
+        width: 100%;
+        color: white;
+        padding: 1rem 0;
+        text-align: center;
+        font-size: 1.25rem;
+    }
+    .footerDescription{
+        color: black;
+        font-size: 1.5;
+        width: 100%;
+        text-align: center;
+    }
+}
