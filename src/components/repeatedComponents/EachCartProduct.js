@@ -35,7 +35,6 @@ function EachCartProduct({productInfo}) {
             <div className="priceThirdThird">
                 <p>${(Number(productInfo.price)*productInfo.quantity).toFixed(2)}</p>
             </div>
-
         </div>
         <hr className="devider" width="95%"/>
     </>

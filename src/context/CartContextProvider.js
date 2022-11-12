@@ -56,14 +56,14 @@ const cartReducer = (state, {type, payload}) => {
             return {
                 selectedProducts: [],
                 productQuantity: 0,
-                totalPrice: [],
+                totalPrice: 0,
                 checkedOut: true,
             }
         case "CLEAR":       
             return {
                 selectedProducts: [],
                 productQuantity: 0,
-                totalPrice: [],
+                totalPrice: 0,
                 checkedOut: false,
             }
         default:

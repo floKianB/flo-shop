@@ -9,22 +9,22 @@ import "../../styles/css/Product/eachProduct.css";
 const isInCart = (state, id) => !!state.selectedProducts.find(product => product.id === id)
 
 
-function EachProduct({productData}) { 
-
-
+function EachProduct({productData, id}) { 
     const {state, dispatch} = useContext(CartContext);
     const selectedItem = state.selectedProducts.find(selectedProduct => selectedProduct.id === productData.id);
     return (
         <div className="eachProductCard">
-            {/* Header */}
-            <span className="header">
-                <h3 className="productTitle"><Link to={`/product/${productData.id}`}>{productData.name}</Link></h3>
-                <h4 className="productBrand">{productData.brand}</h4>
-            </span>
-            {/* Image */}
-            <span className="imageContainer">
-                <img className="productImage" src={productData.image} alt={productData.name} width={200} />
-            </span>
+            <Link to={`/product/${Number(id)}`}>
+                {/* Header */}
+                <span className="header">
+                    <h3 className="productTitle">{productData.name}</h3>
+                    <h4 className="productBrand">{productData.brand}</h4>
+                </span>
+                {/* Image */}
+                <span className="imageContainer">
+                    <img className="productImage" src={productData.image} alt={productData.name}/>
+                </span>
+            </Link>
             {/* Price and Add to Cart */}
             <span className="priceSection">
                 <div className="buttonContainer">

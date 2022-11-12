@@ -10,7 +10,7 @@ function Products() {
     return (
         <div className="productsContainer">
         {
-            products.map(product => <EachProduct key={product.id} productData={product}/>)
+            products.map((product, index) => <EachProduct key={product.id} id={index} productData={product}/>)
         }
         </div>
 

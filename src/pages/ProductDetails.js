@@ -1,10 +1,21 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
+import { ProductContext } from '../context/ProductContextProvider';
+
+
+
 
 function ProductDetails() {
+    const [thisItem, setThisItem] = useState(false);
+    const products = useContext(ProductContext);
     const params = useParams();
+    const paramsId = params.id;
+    useEffect(()=>{
+        setThisItem(products[paramsId])
+    }, [products])
+
     return (
-        <h1>{params.id}</h1>
+        <h2>{thisItem.name}</h2>
     )
 }
 
