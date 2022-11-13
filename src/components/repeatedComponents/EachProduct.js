@@ -42,26 +42,28 @@ function EachProduct({productData, id}) {
                 <div className="buttonContainer">
                     {
                         isInCart(state, productData.id) ?
-                            selectedItem.quantity !== 1 ? 
-                            <> 
-                                <button className="functionalButtons" onClick={() => dispatch({type: "DECREASE_PRODUCT_QUANTITY", payload: productData})}>-</button>
-                                <h4 className="product">{selectedItem.quantity}</h4>
-                                <button className="functionalButtons" onClick={() => {
-                                    dispatch({type: "INCREASE_PRODUCT_QUANTITY", payload: productData})
+                            selectedItem.quantity !== 1 
+                            ? 
+                                <> 
+                                    <button className="functionalButtons" onClick={() => dispatch({type: "DECREASE_PRODUCT_QUANTITY", payload: productData})}>-</button>
+                                    <h3>{selectedItem.quantity}</h3>
+                                    <button className="functionalButtons" onClick={() => {
+                                        dispatch({type: "INCREASE_PRODUCT_QUANTITY", payload: productData})
                                     }
                                 } >+</button>
-                            </>
+
+                                </>
                             :
-                            <> 
-                                <button className="functionalButtons" onClick={() => dispatch({type: "DELETE_PRODUCT", payload: productData})}>
-                                    <img width="12px" src={trash} alt="remove"/>
-                                </button>
-                                <h3>{selectedItem.quantity}</h3>
-                                <button className="functionalButtons" onClick={() => {
-                                    dispatch({type: "INCREASE_PRODUCT_QUANTITY", payload: productData})
+                                <>
+                                    <button className="functionalButtons" onClick={() => dispatch({type: "DELETE_PRODUCT", payload: productData})}>-</button>
+                                    <h3>{selectedItem.quantity}</h3>
+                                    <button className="functionalButtons" onClick={() => {
+                                        dispatch({type: "INCREASE_PRODUCT_QUANTITY", payload: productData})
                                     }
                                 } >+</button>
-                            </>
+
+                                </>
+                            
                         :
                             
                         <button className="functionalButtons" onClick={() => dispatch({type: "ADD_PRODUCT_TO_CART", payload: productData})}>Add to Cart</button>
