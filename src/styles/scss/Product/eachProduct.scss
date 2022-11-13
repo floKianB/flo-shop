@@ -39,17 +39,21 @@ a{
     width: 100%;
     flex: 6;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     .productImage{
         width: 250px;
         height: 250px;
+        margin: 20px;
+        margin-top: 0;
         object-fit: contain;
     }
 }
 // last part of the product cart -price and operations to buy
 .priceSection {
     width: 100%;
+    font-size: 1.1rem;
     flex: 1;
     display: flex;
     align-items: center;

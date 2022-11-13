@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/CartContextProvider';
+// library used
+import StarRatings from 'react-star-ratings';
 // image Links
 import trash from '../../images/trash.svg'
 // styles
@@ -23,6 +25,16 @@ function EachProduct({productData, id}) {
                 {/* Image */}
                 <span className="imageContainer">
                     <img className="productImage" src={productData.image} alt={productData.name}/>
+                    <StarRatings
+                        className="starsRate"
+                        rating={Number(productData.stars)}
+                        starRatedColor="black"
+                        numberOfStars={5}
+                        name='rating'
+                        starDimension='25px'
+                        starSpacing='1px'
+                        align='start'
+                    />
                 </span>
             </Link>
             {/* Price and Add to Cart */}
@@ -33,7 +45,7 @@ function EachProduct({productData, id}) {
                             selectedItem.quantity !== 1 ? 
                             <> 
                                 <button className="functionalButtons" onClick={() => dispatch({type: "DECREASE_PRODUCT_QUANTITY", payload: productData})}>-</button>
-                                <h3>{selectedItem.quantity}</h3>
+                                <h4 className="product">{selectedItem.quantity}</h4>
                                 <button className="functionalButtons" onClick={() => {
                                     dispatch({type: "INCREASE_PRODUCT_QUANTITY", payload: productData})
                                     }
@@ -56,7 +68,7 @@ function EachProduct({productData, id}) {
                     }
                     
                 </div>
-                <h3 className="product">${productData.price}</h3>
+                <h4 className="product">${productData.price}</h4>
             </span>
         </div>
         
