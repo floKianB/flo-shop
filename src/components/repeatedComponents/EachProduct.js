@@ -46,7 +46,7 @@ function EachProduct({productData, id}) {
                             ? 
                                 <> 
                                     <button className="functionalButtons" onClick={() => dispatch({type: "DECREASE_PRODUCT_QUANTITY", payload: productData})}>-</button>
-                                    <h3>{selectedItem.quantity}</h3>
+                                    <h3 className="itemQuantity">{selectedItem.quantity}</h3>
                                     <button className="functionalButtons" onClick={() => {
                                         dispatch({type: "INCREASE_PRODUCT_QUANTITY", payload: productData})
                                     }
@@ -56,7 +56,7 @@ function EachProduct({productData, id}) {
                             :
                                 <>
                                     <button className="functionalButtons" onClick={() => dispatch({type: "DELETE_PRODUCT", payload: productData})}>-</button>
-                                    <h3>{selectedItem.quantity}</h3>
+                                    <h3 className="itemQuantity">{selectedItem.quantity}</h3>
                                     <button className="functionalButtons" onClick={() => {
                                         dispatch({type: "INCREASE_PRODUCT_QUANTITY", payload: productData})
                                     }
@@ -70,7 +70,7 @@ function EachProduct({productData, id}) {
                     }
                     
                 </div>
-                <h4 className="product">${productData.price}</h4>
+                <h4 className="productPrice">${productData.price}</h4>
             </span>
         </div>
         

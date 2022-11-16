@@ -43,8 +43,8 @@ a {
   align-items: start;
 }
 .imageContainer .productImage {
-  width: 250px;
-  height: 250px;
+  width: 225px;
+  height: 225px;
   margin: 20px;
   margin-top: 0;
   object-fit: contain;
@@ -64,11 +64,18 @@ a {
   border: 1px solid black;
   height: min-content;
 }
+.priceSection .productPrice {
+  margin: 0.75rem 0;
+}
 
 .buttonContainer {
   display: flex;
   align-items: center;
   gap: 10px;
+  margin: 0;
+}
+.buttonContainer .itemQuantity {
+  margin: 0;
 }
 
 /*# sourceMappingURL=eachProduct.css.map */

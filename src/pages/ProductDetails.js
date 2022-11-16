@@ -7,15 +7,24 @@ import { ProductContext } from '../context/ProductContextProvider';
 
 function ProductDetails() {
     const [thisItem, setThisItem] = useState(false);
-    const products = useContext(ProductContext);
     const params = useParams();
     const paramsId = params.id;
-    useEffect(()=>{
-        setThisItem(products[paramsId])
-    }, [products])
+    let products = useContext(ProductContext);
+    
 
+    useEffect(() => {
+        async function fetchData () {
+            await setThisItem(products[paramsId]);
+        }
+        fetchData();
+    }, [products])
+    
+    
     return (
-        <h2>{thisItem.name}</h2>
+        <>
+            <h1>Details</h1>
+            {thisItem!==undefined ? <h1>{thisItem.name}</h1> : <p>Loading ...</p>}
+        </>
     )
 }
 
